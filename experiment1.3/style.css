@@ -1,0 +1,28 @@
+
+body {
+    background-color: #1d2441;
+    margin-top: 0px;
+}
+.outerBody {
+    color: white;
+}
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.columns {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    text-align: center;
+    gap: 10px;
+}
+.one {
+    height: 200px;
+    background-color: grey;
+    padding: 20px;
+    border-radius: 10px;
+}
+button.color {
+    height: 40px;
+}

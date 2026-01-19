@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Banking UI</title>
+    <link rel="stylesheet" href="EXP2.css">
+    <link rel="icon" href="lgo.png" type="image/x-icon">
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Balance : <span id="Balance1">$</span></h2>
+    <form>
+    <label for="amount">Amount :</label><br>
+    <input type="text" required placeholder="Enter the amount" id="amount"><br>
+    <div class="btn">
+        <button class="depositButton" id="b1">Deposit</button>
+    <button class="withdrawButton" id="b2">Withdraw</button>
+    </div>
+    <h3 id="message"></h3>
+    </form>
+    </div>
+    <script>
+        let balance = 0 ;
+        const balanceSpann = document.getElementById('Balance1');
+        const amountInput = document.getElementById('amount');
+        const depositButton1 = document.getElementById('b1');
+        const withdrawButton1 = document.getElementById('b2');
+        const messageP = document.getElementById('message');
+
+        depositButton1.addEventListener('click', () => {
+            const amount = parseFloat(amountInput.value);
+            if (!isNaN(amount) && amount > 0) {
+                balance += amount;
+                balanceSpann.textContent =`$${balance.toFixed(2)}`;
+                messageP.textContent = 'Deposit successful!';
+            } else {
+                messageP.textContent = 'Please enter a valid amount.';
+            }
+            document.getElementById('amount').value = '';
+
+        });
+
+        withdrawButton1.addEventListener('click', () => {
+            const amount = parseFloat(amountInput.value);
+            if (!isNaN(amount) && amount > 0 && amount <= balance) {
+                balance -= amount;
+                balanceSpann.textContent = `$${balance.toFixed(2)}`;
+                messageP.textContent = 'Withdrawal successful!';
+            } else {
+                messageP.textContent = 'Please enter a valid amount.';
+            }
+            document.getElementById('amount').value = '';
+        });
+
+    </script>
+</body>
+</html>
