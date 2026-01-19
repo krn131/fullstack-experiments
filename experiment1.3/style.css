@@ -25,4 +25,9 @@ body {
 }
 button.color {
     height: 40px;
+    background-color: #5969a9;
+    color: white;
+}
+.one {
+    border: solid 1px gray;
 }
